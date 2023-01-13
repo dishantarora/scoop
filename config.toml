@@ -1,17 +1,6 @@
-[WebDriver]
-chrome_driver_path = ".\"
-gecko_driver_path = ".\"
-edge_driver_path = ""
-ie_driver_path = ""
-opera_driver_path = ""
-safari_driver_path = ""
-
 [Browser]
-browser_type = "chrome"
-is_headless = true
-    [Resolution]
-    length = 1920
-    width = 1200
-
-[Application]
-linkedin_url = "https://in.linkedin.com/"
+chrome_driver_path = 'bin\\chromedriver.exe'
+firefox_driver_path = 'bin\\geckodriver.exe'
+firefox_binary_location = 'C:\Program Files\Mozilla Firefox\firefox.exe'
+browser_type = "Chrome" 
+application_url = 'https://www.linkedin.com/'
