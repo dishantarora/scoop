@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 bin/chromedriver.exe
 bin/geckodriver.exe
+.vscode/settings.json
