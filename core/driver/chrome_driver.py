@@ -1,6 +1,7 @@
 from selenium import webdriver
 from core.driver.base_driver import BaseDriver
 
+
 class ChromeDriver(BaseDriver):
 
     def __init__(self, config) -> None:
