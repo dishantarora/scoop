@@ -12,3 +12,6 @@ class BaseDriver(ABC):
         if self._driver is not None:
             self._driver.quit()
             self._driver = None
+    
+    def get_driver(self):
+        return self._driver
