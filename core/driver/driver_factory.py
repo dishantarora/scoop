@@ -9,8 +9,8 @@ class DriverFactory():
     def get_instance(browser_type: str):
         config = Config()
         if browser_type.lower() == 'chrome':
-            return ChromeDriver(config)
+            return ChromeDriver(config).get_driver()
         elif browser_type.lower() == 'firefox':
-            return FireFoxDriver(config)
+            return FireFoxDriver(config).get_driver()
         else:
-            return ChromeDriver(config)
+            return ChromeDriver(config).get_driver()
