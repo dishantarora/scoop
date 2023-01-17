@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from core.util.config import Config
+from core.util.app_settings import AppSetting
 from core.driver.driver_factory import DriverFactory
 from scoop.linkedinscrapper.pages.job_card import JobCard
 from scoop.linkedinscrapper.pages.homepage import Homepage
@@ -11,11 +12,12 @@ from scoop.linkedinscrapper.pages.search_listing import SearchListing
 def main():
 
     # Reading configuration file.
-    config = Config()
+    # config = Config()
+    app_setting = AppSetting()
 
     # Setting up webdriver and loading application.
-    driver = DriverFactory().get_instance(config.get_browser_value('browser_type'))
-    driver.get(config.get_browser_value('application_url'))
+    driver = DriverFactory().get_instance(app_setting.target_browser)
+    driver.get(app_setting.application_url)
 
     # Open Homepage and click on jobs links at the top of webpage.
     homepage = Homepage(driver)
