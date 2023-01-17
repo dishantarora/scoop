@@ -2,5 +2,5 @@
 chrome_driver_path = 'bin\\chromedriver.exe'
 firefox_driver_path = 'bin\\geckodriver.exe'
 firefox_binary_location = 'C:\Program Files\Mozilla Firefox\firefox.exe'
-browser_type = "Chrome" 
+browser_type = 'Chrome' 
 application_url = 'https://www.linkedin.com/'
