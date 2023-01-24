@@ -8,5 +8,9 @@ class AppSetting(Setting):
         self._application_settings = self._get_setting_data['application-setting']
 
     @property
+    def application_url(self):
+        return self._application_settings['application-url']
+    
+    @property
     def product_name(self):
         return self._application_settings['product-name']

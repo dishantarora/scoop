@@ -13,7 +13,7 @@ def main():
 
     # Setting and initializing web driver object.
     driver = DriverFactory().get_instance(system_setting)
-    driver.get('https://www.amazon.com/')
+    driver.get(app_setting.application_url)
 
     # Enter search keyword in search field and submit.
     search_field = driver.find_element(By.XPATH, r'//*[@id="twotabsearchtextbox"]')

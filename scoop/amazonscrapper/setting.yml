@@ -1,2 +1,3 @@
 application-setting:
+  application-url: 'https://www.amazon.com/'
   product-name: 'Laptop'
