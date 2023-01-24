@@ -4,9 +4,9 @@ system-setting:
   chrome-binary-location: ""
   firefox-driver-path: 'bin\\geckodriver.exe'
   firefox-binary-location: 'C:\Program Files\Mozilla Firefox\firefox.exe'
-browser-setting:
-  width: "600"
-  height: "600"
-  position-x: "100"
-  position-y: "800"
-  is-headless: "true"
+  browser-setting:
+    width: "600"
+    height: "600"
+    position-x: "100"
+    position-y: "800"
+    is-headless: "true"
