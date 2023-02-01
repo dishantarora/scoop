@@ -1,36 +1,37 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from core.util.config import Config
-from core.util.app_settings import AppSetting
+from core.util.system_setting import SystemSetting
 from core.driver.driver_factory import DriverFactory
-from scoop.linkedinscrapper.pages.job_card import JobCard
-from scoop.linkedinscrapper.pages.homepage import Homepage
-from scoop.linkedinscrapper.pages.search_listing import SearchListing
+from scoop.linkedinscrapper.job_card import JobCard
+from scoop.linkedinscrapper.homepage import Homepage
+from scoop.linkedinscrapper.search_listing import SearchListing
+from scoop.linkedinscrapper.app_setting import AppSetting
 
 
 def main():
 
-    # Reading configuration file.
-    # config = Config()
+    # Setting up both system level and application level setting instances.
+    system_setting = SystemSetting()
     app_setting = AppSetting()
 
-    # Setting up webdriver and loading application.
-    driver = DriverFactory().get_instance(app_setting.target_browser)
+    # Setting up webdriver by taking target browser from system setting
+    # And, loading application by receiving application url from app setting.
+    driver = DriverFactory().get_instance(system_setting.target_browser)
     driver.get(app_setting.application_url)
 
     # Open Homepage and click on jobs links at the top of webpage.
     homepage = Homepage(driver)
     homepage.click_jobs_button()
 
-    # Creating a storage for jobs data.
-    jobs = []
-
-    # Searching jobs.
+    # Searching jobs by entering job title and location mentioned in app setting file.
     search_listing_page = SearchListing(driver)
-    search_listing_page.enter_job_title("Software Engineer")
-    search_listing_page.enter_job_location("Delhi, India")
+    search_listing_page.enter_job_title(app_setting.job_title)
+    search_listing_page.enter_job_location(app_setting.job_location)
     search_listing_page.click_search_jobs_button()
+
+    # Creating storage for extracted jobs.
+    jobs = []
 
     # Extracting data from each job card.
     job_cards = search_listing_page.get_job_cards()
