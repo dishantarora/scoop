@@ -17,7 +17,7 @@ def main():
 
     # Setting up webdriver by taking target browser from system setting
     # And, loading application by receiving application url from app setting.
-    driver = DriverFactory().get_instance(system_setting.target_browser)
+    driver = DriverFactory().get_instance(system_setting)
     driver.get(app_setting.application_url)
 
     # Open Homepage and click on jobs links at the top of webpage.
