@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import json
+import pandas as pd
+
+
 from core.util.system_setting import SystemSetting
 from core.driver.driver_factory import DriverFactory
 from scoop.linkedinscrapper.job_card import JobCard
@@ -43,7 +47,13 @@ def main():
         job['location'] = job_card.get_job_location()
         job['posting_date'] = job_card.get_job_posting_date()
         jobs.append(job)
-    print(jobs)
+
+    # Converting an array of job object into json string.
+    json_string = json.dumps(jobs)
+    print(json_string)
+
+    # Converting jobs json string into excel file.
+    pd.read_json(json_string).to_excel('output.xlsx')
 
     # Quitting application.
     driver.quit()
