@@ -12,12 +12,13 @@ from scoop.linkedinscrapper.homepage import Homepage
 from scoop.linkedinscrapper.search_listing import SearchListing
 from scoop.linkedinscrapper.app_setting import AppSetting
 
+def initializing_settings():
+    return SystemSetting(), AppSetting()
 
 def main():
-
+    
     # Setting up both system level and application level setting instances.
-    system_setting = SystemSetting()
-    app_setting = AppSetting()
+    system_setting, app_setting = initializing_settings()
 
     # Setting up webdriver by taking target browser from system setting
     # And, loading application by receiving application url from app setting.
@@ -42,10 +43,10 @@ def main():
     for each_card in job_cards:
         job = {}
         job_card = JobCard(each_card)
-        job['title'] = job_card.get_job_title()
-        job['company_name'] = job_card.get_company_name()
-        job['location'] = job_card.get_job_location()
-        job['posting_date'] = job_card.get_job_posting_date()
+        job['Title'] = job_card.get_job_title()
+        job['Company Name'] = job_card.get_company_name()
+        job['Location'] = job_card.get_job_location()
+        job['Posting Date'] = job_card.get_job_posting_date()
         jobs.append(job)
 
     # Converting an array of job object into json string.
