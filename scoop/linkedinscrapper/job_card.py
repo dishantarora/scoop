@@ -3,7 +3,7 @@
 """
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
-from scoop.linkedinscrapper.resources.locator import Locator
+from scoop.linkedinscrapper.locator import Locator
 
 
 class JobCard():
