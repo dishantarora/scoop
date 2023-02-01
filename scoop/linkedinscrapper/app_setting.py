@@ -14,3 +14,7 @@ class AppSetting(Setting):
     @property
     def job_title(self):
         return self._application_settings['job-title']
+
+    @property
+    def job_location(self):
+        return self._application_settings['job-location']
