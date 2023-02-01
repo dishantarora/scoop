@@ -1,31 +1,16 @@
 from core.util.setting import Setting
-from core.util.singleton import Singleton
 
 
 class SystemSetting(Setting):
 
-    __metaclass__ = SettingsMeta
+    def __init__(self):
+        super().__init__('settings.yml')
+        self._system_settings = self._get_setting_data['system-setting']
 
     @property
     def target_browser(self):
-        return self._some['target_browser']
+        return self._system_settings['target-browser']
 
     @property
     def chrome_driver_path(self):
-        return self._some['chrome_driver_path']
-
-    @property
-    def chrome_binary_location(self):
-        return self._some['chrome_binary_location']
-
-    @property
-    def firefox_driver_path(self):
-        return self._some['firefox_driver_path']
-
-    @property
-    def firefox_binary_location(self):
-        return self._some['firefox_binary_location']
-
-    @property
-    def application_url(self):
-        return self._some['application_url']
+        return self._system_settings['chrome-driver-path']
